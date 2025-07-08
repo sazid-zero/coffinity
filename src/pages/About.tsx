@@ -8,7 +8,7 @@ const quoteBubbles = [
 
 const About = () => {
     return (
-        <section className="py-24 bg-gray-950 text-white px-6 relative overflow-hidden">
+        <section className="py-52 text-white px-6 relative overflow-hidden">
             {/* Floating Quotes */}
             {quoteBubbles.map((quote, i) => (
                 <motion.div
@@ -17,6 +17,7 @@ const About = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: i * 0.4 }}
+                    viewport={{amount:0.5}}
                     style={{
                         top: `${20 + i * 60}px`,
                         left: `${10 + i * 15}%`,
@@ -57,7 +58,10 @@ const About = () => {
                     </motion.div>
                 </div>
             </div>
+
+
         </section>
+
     );
 };
 

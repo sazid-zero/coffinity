@@ -3,6 +3,7 @@ import {Hero} from "./pages/Hero.tsx";
 import {Featured} from "./pages/Featured.tsx";
 import {motion, useScroll, useTransform} from "framer-motion";
 import Menu from "./pages/Menu.tsx";
+import About from "./pages/About.tsx";
 
 function App() {
     const { scrollYProgress } = useScroll({
@@ -23,6 +24,7 @@ function App() {
        <div className="min-h-screen w-full bg-gradient-to-r from-black to-amber-950">
            <Menu/>
            <Featured/>
+           <About/>
 
        </div>
 
