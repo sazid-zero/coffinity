@@ -27,12 +27,12 @@ export const MenuModal: React.FC<MenuModalProps> = ({ item, onClose }) => {
                 exit={{ scale: 0.8 }}
                 onClick={(e) => e.stopPropagation()}
             >
-                {/* Close Button */}
+
                 <button className="absolute top-3 right-4 text-white text-xl z-50" onClick={onClose}>
                     ✕
                 </button>
 
-                {/* Content */}
+
                 <div className="flex justify-between items-center p-6">
                 <div className=" space-y-4">
                     <h2 className="text-2xl font-bold">{item.name}</h2>
@@ -55,7 +55,6 @@ export const MenuModal: React.FC<MenuModalProps> = ({ item, onClose }) => {
                 </div>
 
 
-                {/* Full Image Section */}
                 <div className="w-full h-[280px] md:h-[360px]">
                     <img
                         src={`/menu/${item.image}`}

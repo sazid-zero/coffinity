@@ -12,7 +12,7 @@ export function Button({title, width, height}: ButtonProps) {
                     style={{width, height}}
                     animate={{
                         backgroundPositionX: ["0%", "100%", "0%"],
-                        scale: 1,  // normal scale
+                        scale: 1,
                     }}
                     transition={{
                         backgroundPositionX: {
@@ -20,11 +20,11 @@ export function Button({title, width, height}: ButtonProps) {
                             repeat: Infinity,
                             ease: "linear",
                         },
-                        scale: { duration: 0.5 },  // no delay when resetting scale
+                        scale: { duration: 0.5 },
                     }}
                     whileHover={{
                         scale: 1.1,
-                        transition: { duration: 0.5 }, // instant zoom on hover
+                        transition: { duration: 0.5 },
                     }}>
             {title}
 

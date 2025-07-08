@@ -44,7 +44,7 @@ const Contact = () => {
                             className="mt-4 px-6 py-3 bg-gradient-to-r from-[#EA2F14] via-[#F7AD45] to-[#EA2F14] bg-[length:200%_200%] rounded-full font-medium transition"
                             animate={{
                                 backgroundPositionX: ["0%", "100%", "0%"],
-                                scale: 1,  // normal scale
+                                scale: 1,
                             }}
                             transition={{
                                 backgroundPositionX: {
@@ -52,11 +52,11 @@ const Contact = () => {
                                     repeat: Infinity,
                                     ease: "linear",
                                 },
-                                scale: { duration: 0.5 },  // no delay when resetting scale
+                                scale: { duration: 0.5 },
                             }}
                             whileHover={{
                                 scale: 1.1,
-                                transition: { duration: 0.5 }, // instant zoom on hover
+                                transition: { duration: 0.5 },
                             }}
                         >
                             Send Brew

@@ -37,9 +37,8 @@ const Menu = () => {
             <h2 className="text-4xl font-bold text-center mb-6">Our Brews & Bites</h2>
             <p className="text-center mb-12">Explore our handcrafted menu, brewed with love since 2025.</p>
 
-            {/* Category Filters */}
             <div className="flex flex-wrap justify-center gap-4 mb-10">
-                {/* All Filter */}
+
                 <motion.button
                     onClick={() => setSelectedCategory(null)}
                     className={`px-4 py-2 rounded-full border font-medium text-sm transition duration-300 ${
@@ -52,7 +51,6 @@ const Menu = () => {
                     All
                 </motion.button>
 
-                {/* Category Filters */}
                 {categories.map((category) => {
                     const style = categoryStyle(category);
                     return (
@@ -72,22 +70,22 @@ const Menu = () => {
                 })}
             </div>
 
-            {/* Cards */}
+
             <div className="max-w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredItems.map((item, index) => {
                     const style = categoryStyle(item.category);
                     return (
                         <motion.div
                             key={item.id}
-                            initial={{ opacity: 0, y: 50 }}
+                            initial={{ opacity: 0, y: 100 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{duration:1, delay: index * 0.2 }}
-                            viewport={{ amount:0.3, once:true }}
+                            viewport={{ amount:0.3 }}
 
                             className="bg-white/10 rounded-xl overflow-hidden shadow-md hover:shadow-amber-200 group hover:scale-105 transition-all duration-300 cursor-pointer"
                             onClick={() => setSelectedItem(item)}
                         >
-                            {/* Top Text Section */}
+
                             <div className="p-4 flex justify-between items-start">
                                 <div>
                                     <h4 className={`text-lg font-semibold group-hover:text-white transition ${style.text}`}>
@@ -115,7 +113,7 @@ const Menu = () => {
                 })}
             </div>
 
-            {/* Modal Render */}
+
             {selectedItem && <MenuModal item={selectedItem} onClose={() => setSelectedItem(null)} />}
         </section>
     );

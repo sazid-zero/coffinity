@@ -32,7 +32,7 @@ export function Hero() {
         <motion.div
             className="relative h-screen grid grid-cols-1 md:grid-cols-2 pl-4 pr-4 lg:pl-16 lg:pr-16 text-white"
         >
-            {/* Left Side Content */}
+
             <motion.div
                 className="pt-4 md:pt-22 lg:pt-32 space-y-1"
                 initial={{ x: -100, opacity: 0 }}
@@ -81,7 +81,7 @@ export function Hero() {
                     whileInView={{ scale: 1, rotate: 0, opacity: 1, x: 0 }}
                     whileHover={{ scale: 1.2, rotate: 10 }}
                     transition={{ duration: 1.5, ease: "easeOut" }}
-                    viewport={{ amount: 0.1 }}
+                    viewport={{ amount: 0.3 }}
                 />
             </div>
         </motion.div>

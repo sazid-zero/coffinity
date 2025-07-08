@@ -36,7 +36,7 @@ const About = () => {
                     Crafted for developers. Inspired by espresso.
                 </p>
 
-                {/* Mini Timeline */}
+
                 <div className="mt-12 space-y-4 text-left max-w-md mx-auto">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
