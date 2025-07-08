@@ -1,8 +1,11 @@
 import {Button} from "./Button.tsx";
 
+
+
 export function Nav(){
 
     const nav = ["Home", "Menu", "About", "Featured", "Contact" ]
+
 
     return (
         <div className="hidden fixed w-full h-18 backdrop-blur-xs md:flex items-center justify-between z-50 p-8">
@@ -16,8 +19,14 @@ export function Nav(){
                 {nav.map((item) => (
                     <div
                         key={item}
-                        className="text-sm font-semibold text-white ">
-                        <h1> {item} </h1>
+                        className="text-sm font-semibold text-white cursor-pointer"
+                        onClick={() => {
+                        const section = document.getElementById(item);
+                        section?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                        >
+                        {item}
+
                     </div>
 
 
