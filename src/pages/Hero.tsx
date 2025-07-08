@@ -30,11 +30,11 @@ export function Hero() {
 
     return (
         <motion.div
-            className="h-screen grid grid-cols-1 lg:grid-cols-2 p-8 lg:pl-16 lg:pr-16 text-white"
+            className="relative h-screen grid grid-cols-1 md:grid-cols-2 pl-4 pr-4 lg:pl-16 lg:pr-16 text-white"
         >
             {/* Left Side Content */}
             <motion.div
-                className="pt-32 space-y-1"
+                className="pt-4 md:pt-22 lg:pt-32 space-y-1"
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1, ease: "easeInOut" }}
@@ -42,10 +42,10 @@ export function Hero() {
             >
                 <h1 className="text-lg font-bold">Welcome To</h1>
                 <div className="flex space-x-1 mb-6">
-                    <h1 className="text-5xl font-bold bg-gradient-to-r from-[#EA2F14] via[#E6521F] to-[#FFD63A] text-transparent bg-clip-text">Coffinity</h1>
-                    <img src="/icons/coffee.png" className="h-12 w-12"/>
+                    <h1 className="text-2xl md:text-5xl font-bold bg-gradient-to-r from-[#EA2F14] via[#E6521F] to-[#FFD63A] text-transparent bg-clip-text">Coffinity</h1>
+                    <img src="/icons/coffee.png" className="h-6 w-6 md:h-12 md:w-12"/>
                 </div>
-                <h1 className="text-4xl font-bold mb-2">Crafted for Moments of Warmth and Connection</h1>
+                <h1 className="text-xl md:text-4xl font-bold mb-2">Crafted for Moments of Warmth and Connection</h1>
 
                 <p className="mb-6 text-lg text-[#C9B194]">Fuel your day with community, creativity, and the perfect cup.</p>
 
@@ -59,7 +59,7 @@ export function Hero() {
                     <Button title={"Join Coffinity"} width="128px" height="44px" />
                 </div>
 
-                <div className="min-h-8 max-w-100 rounded-full items-center p-4 bg-white/10 backdrop-blur-2xl mt-36" >
+                <div className="min-h-8 max-w-100 rounded-full items-center p-4 bg-white/10 backdrop-blur-2xl lg:mt-36 mt-4" >
                 <motion.p
                     className=" font-mono text-sm font-bold text-neutral-300 "
                     initial={{ opacity: 0 }}
@@ -72,11 +72,11 @@ export function Hero() {
             </motion.div>
 
             {/* Right Side Image */}
-            <div className="w-full h-full items-center justify-center flex pt-8">
+            <div className="w-full h-full items-center justify-center flex md:pt-8 pt-2 ">
                 <motion.img
                     src="/coffe.png"
                     alt="Coffee Cup"
-                    className=" justify-self-center"
+                    className="w-60 lg:w-auto justify-self-center"
                     initial={{ scale: 0, rotate: -45, opacity: 0 }}
                     whileInView={{ scale: 1, rotate: 0, opacity: 1, x: 0 }}
                     whileHover={{ scale: 1.2, rotate: 10 }}
