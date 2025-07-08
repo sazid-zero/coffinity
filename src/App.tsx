@@ -11,22 +11,18 @@ function App() {
     const bgTranslateY = useTransform(scrollYProgress, [0, 1], [0, -400]);
 
   return (
-   <main className="w-full min-h-screen">
+   <main className="w-full min-h-screen ">
        <Nav/>
            <motion.div
-                   className="fixed w-full lg:h-[140vh] h-[200vh]  bg-[url('/coffebg2.jpg')] bg-cover bg-center z-[-10]"
+                   className="fixed w-full h-[140vh]  bg-[url('/coffebg2.jpg')] bg-cover bg-center z-[-10]"
                    style={{
                        y: bgTranslateY,
                        transformOrigin: "center",
                    }}
                />
        <Hero/>
-       <Menu/>
-
-           <div className="h-screen bg-amber-100 bg-cover bg-center flex items-center justify-center text-white">
-               <Featured/>
-           </div>
-
+           <Menu/>
+           <Featured/>
 
    </main>
   )
