@@ -14,7 +14,7 @@ function App() {
    <main className="w-full min-h-screen">
        <Nav/>
            <motion.div
-                   className="fixed w-full h-[140vh] bg-[url('/coffebg2.jpg')] bg-cover bg-center z-[-10]"
+                   className="fixed w-full min-h-[140vh] bg-[url('/coffebg2.jpg')] bg-cover bg-center z-[-10] overflow-auto"
                    style={{
                        y: bgTranslateY,
                        //opacity: bgOpacity,
