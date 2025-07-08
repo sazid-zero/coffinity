@@ -43,7 +43,7 @@ export function Hero() {
                 <h1 className="text-lg font-bold">Welcome To</h1>
                 <div className="flex space-x-1 mb-6">
                     <h1 className="text-2xl md:text-5xl font-bold bg-gradient-to-r from-[#EA2F14] via[#E6521F] to-[#FFD63A] text-transparent bg-clip-text">Coffinity</h1>
-                    <img src="/icons/coffee.png" className="h-6 w-6 md:h-12 md:w-12"/>
+                    <img src="/icons/coffee.png" loading="lazy" className="h-6 w-6 md:h-12 md:w-12"/>
                 </div>
                 <h1 className="text-xl md:text-4xl font-bold mb-2">Crafted for Moments of Warmth and Connection</h1>
 
@@ -71,10 +71,11 @@ export function Hero() {
                 </div>
             </motion.div>
 
-            {/* Right Side Image */}
+
             <div className="w-full h-full items-center justify-center flex md:pt-8 pt-2 ">
                 <motion.img
-                    src="/coffe.png"
+                    loading={"lazy"}
+                    src="/icons/coffe.webp"
                     alt="Coffee Cup"
                     className="w-60 lg:w-auto justify-self-center"
                     initial={{ scale: 0, rotate: -45, opacity: 0 }}

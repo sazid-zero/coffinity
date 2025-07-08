@@ -99,7 +99,6 @@ const Menu = () => {
                                 </div>
                             </div>
 
-                            {/* Bottom Image Section */}
                             <div className="w-full h-[160px] md:h-[220px] lg:h-[260px]">
                                 <img
                                     src={`/menu/${item.image}`}
