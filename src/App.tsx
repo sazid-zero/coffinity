@@ -16,13 +16,16 @@ function App() {
            <motion.div
                    className="fixed w-full h-[140vh]  bg-[url('/coffebg2.jpg')] bg-cover bg-center z-[-10]"
                    style={{
-                       y: bgTranslateY,
-                       transformOrigin: "center",
+                       y: bgTranslateY
                    }}
                />
        <Hero/>
+       <div className="min-h-screen w-full bg-gradient-to-r from-black to-amber-950">
            <Menu/>
            <Featured/>
+
+       </div>
+
 
    </main>
   )

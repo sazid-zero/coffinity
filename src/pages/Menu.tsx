@@ -33,7 +33,7 @@ const Menu = () => {
     };
 
     return (
-        <section className="py-24 min-h-screen bg-gradient-to-r from-black to-amber-950 text-white relative overflow-hidden">
+        <section className="py-24 min-h-screen text-white relative overflow-hidden">
             <h2 className="text-4xl font-bold text-center mb-6">Our Brews & Bites</h2>
             <p className="text-center mb-12">Explore our handcrafted menu, brewed with love since 2025.</p>
 
@@ -79,10 +79,10 @@ const Menu = () => {
                     return (
                         <motion.div
                             key={item.id}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            viewport={{ once: true }}
+                            transition={{duration:1, delay: index * 0.2 }}
+                            viewport={{ amount:0.3, once:true }}
 
                             className="bg-white/10 rounded-xl overflow-hidden shadow-md hover:shadow-amber-200 group hover:scale-105 transition-all duration-300 cursor-pointer"
                             onClick={() => setSelectedItem(item)}
