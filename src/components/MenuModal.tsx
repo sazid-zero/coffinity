@@ -25,7 +25,7 @@ export const MenuModal = ({ item, onClose }: MenuModalProps) => {
             onClick={onClose}
         >
             <motion.div
-                className="bg-amber-950/50 text-white rounded-xl overflow-hidden max-w-xl w-full relative shadow-lg"
+                className="bg-amber-950/50 text-white rounded-xl max-w-xl w-full relative shadow-lg"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
