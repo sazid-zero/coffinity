@@ -31,7 +31,7 @@ export const MenuModal = ({ item, onClose }: MenuModalProps) => {
                 exit={{ scale: 0.8, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
             >
-                {/* Close Button */}
+
                 <button
                     className="absolute top-3 right-4 text-white text-xl z-50 hover:text-gray-300 transition-colors"
                     onClick={onClose}
@@ -39,7 +39,7 @@ export const MenuModal = ({ item, onClose }: MenuModalProps) => {
                     ✕
                 </button>
 
-                {/* Content */}
+
                 <div className="flex justify-between items-center p-6">
                     <div className="space-y-2">
                         <h2 className="text-2xl font-bold">{item.name}</h2>
@@ -60,7 +60,7 @@ export const MenuModal = ({ item, onClose }: MenuModalProps) => {
                     </div>
                 </div>
 
-                {/* Image - Using actual menu images */}
+
                 <div className="w-full h-[280px] md:h-[360px]">
                     <img
                         src={`/menu/${item.image}`}
