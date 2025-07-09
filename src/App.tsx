@@ -12,9 +12,12 @@ function App() {
   return (
    <main className="w-full min-h-screen ">
        <Nav/>
+       <div
+           className="fixed w-full h-[140vh]  bg-[url('/coffebg2.jpg')] bg-cover bg-center z-[-10]"
+       />
 
        <section id="Home"><Hero /></section>
-       <div className="min-h-screen w-full bg-gradient-to-r from-black to-amber-950">
+       <div className="min-h-screen w-full bg-gradient-to-r from-black to-amber-950 backdrop-blur-2xl">
 
            <section id="Menu"><Menu /></section>
            <section id="Featured"><Featured /></section>

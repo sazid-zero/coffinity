@@ -32,10 +32,6 @@ export function Hero() {
         <motion.div
             className="relative h-screen grid grid-cols-1 md:grid-cols-2 pl-4 pr-4 lg:pl-16 lg:pr-16 text-white"
         >
-            <div
-                className="fixed w-full h-[140vh]  bg-[url('/coffebg2.jpg')] bg-cover bg-center z-[-10]"
-            />
-
             <motion.div
                 className="pt-22 lg:pt-32 space-y-1"
                 initial={{ x: -100, opacity: 0 }}
