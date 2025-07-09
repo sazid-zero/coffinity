@@ -113,9 +113,9 @@ const Menu = () => {
                 }
             case "Specials":
                 return {
-                    textColor: "#8b5cf6", // violet-500 - special and premium
-                    iconColor: "#8b5cf6",
-                    borderColor: "#7c3aed", // violet-600
+                    textColor: "#F564A9", // violet-500 - special and premium
+                    iconColor: "#F564A9",
+                    borderColor: "#F564A9", // violet-600
                 }
             default:
                 return {
