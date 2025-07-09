@@ -5,7 +5,7 @@ import { FaCoffee } from "react-icons/fa"
 import { motion } from "framer-motion"
 import { MenuModal } from "../components/MenuModal"
 
-// Move menuItems outside component to prevent recreation on every render
+
 const menuItems = [
     {
         id: 1,
@@ -34,7 +34,7 @@ const menuItems = [
         image: "caramel.jpg",
     },
     { id: 6, category: "Specials", name: "Cappuccino", price: 6.0, desc: "Sweet and milky", image: "cappuccino.jpg" },
-    // New food items
+
     {
         id: 7,
         category: "Pastries",
@@ -82,40 +82,37 @@ const Menu = () => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
     const [selectedItem, setSelectedItem] = useState<(typeof menuItems)[0] | null>(null)
 
-    // Now these useMemo hooks will work properly since menuItems is stable
     const categories = useMemo(() => [...new Set(menuItems.map((item) => item.category))], [])
 
     const filteredItems = useMemo(
         () => (selectedCategory ? menuItems.filter((item) => item.category === selectedCategory) : menuItems),
         [selectedCategory],
     )
-
-    // Category style function - More distinct colors
     const getCategoryStyle = (category: string) => {
         switch (category) {
             case "Hot Drinks":
                 return {
-                    textColor: "#D6D85D", // orange-500 - warm like hot coffee
+                    textColor: "#D6D85D",
                     iconColor: "#D6D85D",
-                    borderColor: "#D6D85D", // orange-600
+                    borderColor: "#D6D85D",
                 }
             case "Cold Drinks":
                 return {
-                    textColor: "#06b6d4", // cyan-500 - cool like ice
+                    textColor: "#06b6d4",
                     iconColor: "#06b6d4",
-                    borderColor: "#0891b2", // cyan-600
+                    borderColor: "#0891b2",
                 }
             case "Pastries":
                 return {
-                    textColor: "#FE4F2D", // emerald-500 - fresh like baked goods
+                    textColor: "#FE4F2D",
                     iconColor: "#FE4F2D",
-                    borderColor: "#FE4F2D", // emerald-600
+                    borderColor: "#FE4F2D",
                 }
             case "Specials":
                 return {
-                    textColor: "#F564A9", // violet-500 - special and premium
+                    textColor: "#F564A9",
                     iconColor: "#F564A9",
-                    borderColor: "#F564A9", // violet-600
+                    borderColor: "#F564A9",
                 }
             default:
                 return {
@@ -152,13 +149,13 @@ const Menu = () => {
 
     return (
         <section className="py-12 md:py-24 min-h-screen text-white relative overflow-hidden">
-            {/* Mobile fallback header */}
+
             <div className="block md:hidden mb-8">
                 <h2 className="text-3xl font-bold text-center mb-4">Our Brews & Bites</h2>
                 <p className="text-center mb-8 px-4">Explore our handcrafted menu, brewed with love since 2025.</p>
             </div>
 
-            {/* Desktop animated header */}
+
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
@@ -175,7 +172,7 @@ const Menu = () => {
                 </motion.p>
             </motion.div>
 
-            {/* Category Filter Buttons */}
+
             <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-10 px-4">
                 <button
                     onClick={() => setSelectedCategory(null)}
@@ -208,7 +205,7 @@ const Menu = () => {
                 })}
             </div>
 
-            {/* Menu Items Grid */}
+
             <div className="max-w-full mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 {filteredItems.map((item) => {
                     const style = getCategoryStyle(item.category)
