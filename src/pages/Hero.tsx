@@ -34,7 +34,7 @@ export function Hero() {
         >
 
             <motion.div
-                className="pt-4 md:pt-22 lg:pt-32 space-y-1"
+                className="pt-22 lg:pt-32 space-y-1"
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1, ease: "easeInOut" }}

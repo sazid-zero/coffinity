@@ -35,7 +35,7 @@ export const Featured = () => {
                         className="relative overflow-visible bg-white/10 p-6 rounded-xl shadow-lg hover:scale-105 transition-all cursor-pointer"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        //viewport={{ once: true }}
+                        viewport={{ amount:0.3 }}
                         transition={{ duration: 1, delay: index * 0.2 }}
                     >
                         {/* Floating PNG */}
