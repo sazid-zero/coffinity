@@ -12,10 +12,7 @@ function App() {
   return (
    <main className="w-full min-h-screen ">
        <Nav/>
-           <div
-                   className="fixed w-full h-[100vh]  bg-[url('/coffebg2.jpg')] bg-cover bg-center z-[-10]"
-                   style={{ willChange: 'transform' }}
-               />
+
        <section id="Home"><Hero /></section>
        <div className="min-h-screen w-full bg-gradient-to-r from-black to-amber-950">
 
