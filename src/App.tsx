@@ -17,7 +17,7 @@ function App() {
        />
 
        <section id="Home"><Hero /></section>
-       <div className="min-h-screen w-full bg-gradient-to-r from-black to-amber-950 backdrop-blur-2xl">
+       <div className="min-h-screen w-full bg-gradient-to-r from-black to-amber-950">
 
            <section id="Menu"><Menu /></section>
            <section id="Featured"><Featured /></section>
