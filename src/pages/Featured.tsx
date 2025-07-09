@@ -29,20 +29,24 @@ export const Featured = () => {
         <section className="py-16 text-white px-6">
             <h2 className="text-4xl font-bold text-center mb-32">🌟 Featured Flavors</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto">
-                {featuredItems.map((item, index) => (
+                {featuredItems.map((item) => (
                     <motion.div
                         key={item.id}
                         className="relative overflow-visible bg-white/10 p-6 rounded-xl shadow-lg hover:scale-105 transition-all cursor-pointer"
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 20,
+                        }}
                         viewport={{ amount:0.3 }}
-                        transition={{ duration: 1, delay: index * 0.2 }}
                     >
                         {/* Floating PNG */}
                         <img
                             src={`/featured/${item.image}`}
                             alt={item.title}
-                            className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-48 w-48 pointer-events-none opacity-100 drop-shadow-2xl hover:animate-bounce z-50 "
+                            className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-48 w-48 pointer-events-none opacity-100 drop-shadow-2xl z-50 "
                         />
 
                         <div className="space-y-2 pt-20">

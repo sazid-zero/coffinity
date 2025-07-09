@@ -1,69 +1,57 @@
-import { motion } from "framer-motion";
-import { FaCartShopping} from "react-icons/fa6";
+"use client"
+
+import { motion } from "framer-motion"
+import { X } from "lucide-react"
 
 interface MenuModalProps {
     item: {
-        name: string;
-        desc: string;
-        price: number;
-        image: string;
-    };
-    onClose: () => void;
+        id: number
+        category: string
+        name: string
+        price: number
+        desc: string
+        image: string
+    }
+    onClose: () => void
 }
 
-export const MenuModal: React.FC<MenuModalProps> = ({ item, onClose }) => {
+const MenuModal = ({ item, onClose }: MenuModalProps) => {
     return (
         <motion.div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
         >
             <motion.div
-                className="bg-gray-900 text-white rounded-xl overflow-hidden max-w-xl w-full relative shadow-lg"
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.8 }}
+                className="bg-white rounded-xl p-6 max-w-md w-full"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
             >
-
-                <button className="absolute top-3 right-4 text-white text-xl z-50" onClick={onClose}>
-                    ✕
-                </button>
-
-
-                <div className="flex justify-between items-center p-6">
-                <div className=" space-y-4">
-                    <h2 className="text-2xl font-bold">{item.name}</h2>
-                    <p className="text-gray-300">{item.desc}</p>
-
+                <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-bold text-gray-900">{item.name}</h3>
+                    <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+                        <X size={24} />
+                    </button>
                 </div>
-                <div className="flex flex-col justify-end items-end space-y-4">
-                    <h1 className="pr-6 text-lg text-amber-400 font-semibold" >${item.price.toFixed(2)}</h1>
-                    <div className="p-6 pt-0 flex justify-end items-center space-x-4">
-                        <button className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-black/50 text-white rounded-full text-sm font-medium shadow-md transition">
-                            <span className="text-gray-300 text-sm">Buy now</span>
-                            <FaCartShopping className="text-white h-5 w-5"/>
-                        </button>
-                        <button className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-black/50 text-white rounded-full text-sm font-medium shadow-md transition">
-                            <span className="text-gray-300 text-sm">Add to cart</span>
-                            <FaCartShopping className="text-white h-5 w-5"/>
-                        </button>
-                    </div>
-                </div>
-                </div>
-
-
-                <div className="w-full h-[280px] md:h-[360px]">
-                    <img
-                        src={`/menu/${item.image}`}
-                        alt={item.name}
-                        className="w-full h-full object-cover object-center"
-                        loading="lazy"
-                    />
+                <img
+                    src={`/placeholder.svg?height=200&width=300`}
+                    alt={item.name}
+                    className="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <p className="text-gray-600 mb-4">{item.desc}</p>
+                <div className="flex justify-between items-center">
+                    <span className="text-2xl font-bold text-gray-900">${item.price.toFixed(2)}</span>
+                    <button className="bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600 transition-colors">
+                        Add to Cart
+                    </button>
                 </div>
             </motion.div>
         </motion.div>
-    );
-};
+    )
+}
+
+export default MenuModal
