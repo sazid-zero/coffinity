@@ -79,6 +79,7 @@ const Menu = () => {
             category: "Pastries",
         },
         { id: 11, name: "Bagel", desc: "Chewy bread roll", price: 3.5, image: "bagel.jpg", category: "Snacks" },
+        { id: 12, name: "Burger", desc: "Bun petty and toppings", price: 5.5, image: "burger.jpg", category: "Snacks"}
     ]
 
     const categories = [...new Set(menuItems.map((item) => item.category))]
