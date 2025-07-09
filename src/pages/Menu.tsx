@@ -152,7 +152,7 @@ const Menu = () => {
     } as const
 
     return (
-        <section className="py-24 min-h-screen text-white relative overflow-hidden">
+        <section className="py-24 min-h-screen text-white relative">
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
@@ -214,7 +214,7 @@ const Menu = () => {
                                     duration: 0.4,
                                     ease: "easeOut",
                                 }}
-                                className="bg-white/10 rounded-xl overflow-hidden shadow-md hover:shadow-amber-200 group hover:scale-105 transition-all duration-300 cursor-pointer"
+                                className="bg-white/10 rounded-xl shadow-md hover:shadow-amber-200 group hover:scale-105 transition-all duration-300 cursor-pointer"
                                 onClick={() => setSelectedItem(item)}
                             >
                                 <div className="p-4 flex justify-between items-start">
