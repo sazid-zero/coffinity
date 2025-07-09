@@ -1,128 +1,139 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { FaCoffee } from "react-icons/fa"
 import { motion } from "framer-motion"
-import MenuModal from "../components/MenuModal"
+import { MenuModal } from "../components/MenuModal"
+
+// Move menuItems outside component to prevent recreation on every render
+const menuItems = [
+    {
+        id: 1,
+        category: "Hot Drinks",
+        name: "Espresso",
+        price: 3.5,
+        desc: "Rich and bold, served black",
+        image: "espresso2.jpg",
+    },
+    { id: 2, category: "Hot Drinks", name: "Latte", price: 4.5, desc: "Creamy with latte art", image: "latte.jpg" },
+    {
+        id: 3,
+        category: "Cold Drinks",
+        name: "Iced Coffee",
+        price: 4.0,
+        desc: "Chilled and refreshing",
+        image: "ice-coffee.jpg",
+    },
+    { id: 4, category: "Pastries", name: "Croissant", price: 2.5, desc: "Buttery and flaky", image: "croissant.jpg" },
+    {
+        id: 5,
+        category: "Specials",
+        name: "Caramel Macchiato",
+        price: 5.0,
+        desc: "Sweet and seasonal",
+        image: "caramel.jpg",
+    },
+    { id: 6, category: "Specials", name: "Cappuccino", price: 6.0, desc: "Sweet and milky", image: "cappuccino.jpg" },
+    // New food items
+    {
+        id: 7,
+        category: "Pastries",
+        name: "Burger",
+        price: 8.5,
+        desc: "Juicy beef patty with fresh toppings",
+        image: "burger.jpg",
+    },
+    { id: 8, category: "Pastries", name: "Bagel", price: 3.0, desc: "Fresh baked with cream cheese", image: "bagel.jpg" },
+    {
+        id: 9,
+        category: "Pastries",
+        name: "Muffin",
+        price: 2.8,
+        desc: "Blueberry burst in every bite",
+        image: "muffin.jpg",
+    },
+    {
+        id: 10,
+        category: "Pastries",
+        name: "Salad",
+        price: 7.5,
+        desc: "Fresh greens with house dressing",
+        image: "salad.jpg",
+    },
+    {
+        id: 11,
+        category: "Pastries",
+        name: "Sandwich",
+        price: 6.5,
+        desc: "Grilled chicken with avocado",
+        image: "sandwich.jpg",
+    },
+    {
+        id: 12,
+        category: "Pastries",
+        name: "Donut",
+        price: 2.2,
+        desc: "Glazed perfection with sprinkles",
+        image: "donut.jpg",
+    },
+]
 
 const Menu = () => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
-    const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null)
+    const [selectedItem, setSelectedItem] = useState<(typeof menuItems)[0] | null>(null)
 
-    interface MenuItem {
-        id: number
-        name: string
-        desc: string
-        price: number
-        image: string
-        category: string
-    }
+    // Now these useMemo hooks will work properly since menuItems is stable
+    const categories = useMemo(() => [...new Set(menuItems.map((item) => item.category))], [])
 
-    const menuItems: MenuItem[] = [
-        { id: 1, name: "Espresso", desc: "Rich and bold coffee", price: 3.5, image: "espresso2.jpg", category: "Coffee" },
-        {
-            id: 2,
-            name: "Cappuccino",
-            desc: "Espresso with foamed milk",
-            price: 4.0,
-            image: "cappuccino.jpg",
-            category: "Coffee",
-        },
-        { id: 3, name: "Latte", desc: "Espresso with steamed milk", price: 4.5, image: "latte.jpg", category: "Coffee" },
-        {
-            id: 4,
-            name: "Iced Coffee",
-            desc: "Chilled coffee served over ice",
-            price: 4.0,
-            image: "ice-coffee.jpg",
-            category: "Coffee",
-        },
-        {
-            id: 5,
-            name: "Croissant",
-            desc: "Flaky and buttery pastry",
-            price: 3.0,
-            image: "croissant.jpg",
-            category: "Pastries",
-        },
-        { id: 6, name: "Muffin", desc: "Sweet and moist cake", price: 2.5, image: "muffin.jpg", category: "Pastries" },
-        {
-            id: 7,
-            name: "Sandwich",
-            desc: "Assorted fillings on fresh bread",
-            price: 6.0,
-            image: "sandwich.jpg",
-            category: "Snacks",
-        },
-        {
-            id: 8,
-            name: "Salad",
-            desc: "Fresh greens with various toppings",
-            price: 7.0,
-            image: "salad.jpg",
-            category: "Snacks",
-        },
-        {
-            id: 9,
-            name: "Americano",
-            desc: "Espresso diluted with hot water",
-            price: 3.0,
-            image: "americano.jpg",
-            category: "Coffee",
-        },
-        {
-            id: 10,
-            name: "Donut",
-            desc: "Sweet fried dough confection",
-            price: 2.0,
-            image: "donut.jpg",
-            category: "Pastries",
-        },
-        { id: 11, name: "Bagel", desc: "Chewy bread roll", price: 3.5, image: "bagel.jpg", category: "Snacks" },
-        { id: 12, name: "Burger", desc: "Bun petty and toppings", price: 5.5, image: "burger.jpg", category: "Snacks"}
-    ]
+    const filteredItems = useMemo(
+        () => (selectedCategory ? menuItems.filter((item) => item.category === selectedCategory) : menuItems),
+        [selectedCategory],
+    )
 
-    const categories = [...new Set(menuItems.map((item) => item.category))]
-
-    const filteredItems = selectedCategory ? menuItems.filter((item) => item.category === selectedCategory) : menuItems
-
-    const categoryStyle = (category: string) => {
+    // Category style function - More distinct colors
+    const getCategoryStyle = (category: string) => {
         switch (category) {
-            case "Coffee":
+            case "Hot Drinks":
                 return {
-                    border: "border-amber-500",
-                    text: "text-amber-500",
-                    icon: "#f59e0b",
+                    textColor: "#D6D85D", // orange-500 - warm like hot coffee
+                    iconColor: "#D6D85D",
+                    borderColor: "#D6D85D", // orange-600
+                }
+            case "Cold Drinks":
+                return {
+                    textColor: "#06b6d4", // cyan-500 - cool like ice
+                    iconColor: "#06b6d4",
+                    borderColor: "#0891b2", // cyan-600
                 }
             case "Pastries":
                 return {
-                    border: "border-rose-500",
-                    text: "text-rose-500",
-                    icon: "#f472b6",
+                    textColor: "#FE4F2D", // emerald-500 - fresh like baked goods
+                    iconColor: "#FE4F2D",
+                    borderColor: "#FE4F2D", // emerald-600
                 }
-            case "Snacks":
+            case "Specials":
                 return {
-                    border: "border-teal-500",
-                    text: "text-teal-500",
-                    icon: "#14b8a6",
+                    textColor: "#8b5cf6", // violet-500 - special and premium
+                    iconColor: "#8b5cf6",
+                    borderColor: "#7c3aed", // violet-600
                 }
             default:
                 return {
-                    border: "border-white",
-                    text: "text-white",
-                    icon: "#fff",
+                    textColor: "#ffffff",
+                    iconColor: "#ffffff",
+                    borderColor: "#ffffff",
                 }
         }
     }
 
-    // Animation variants for batched animations - Fix TypeScript errors
+    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
                 staggerChildren: 0.1,
-                delayChildren: 0.2,
+                delayChildren: 0.1,
             },
         },
     } as const
@@ -133,18 +144,6 @@ const Menu = () => {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.5,
-                ease: "easeOut",
-            },
-        },
-    } as const
-
-    const buttonVariants = {
-        hidden: { opacity: 0, scale: 0.8 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
                 duration: 0.4,
                 ease: "easeOut",
             },
@@ -152,12 +151,20 @@ const Menu = () => {
     } as const
 
     return (
-        <section className="py-24 min-h-screen text-white relative">
+        <section className="py-12 md:py-24 min-h-screen text-white relative overflow-hidden">
+            {/* Mobile fallback header */}
+            <div className="block md:hidden mb-8">
+                <h2 className="text-3xl font-bold text-center mb-4">Our Brews & Bites</h2>
+                <p className="text-center mb-8 px-4">Explore our handcrafted menu, brewed with love since 2025.</p>
+            </div>
+
+            {/* Desktop animated header */}
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ amount: 0.3, once: true }}
+                viewport={{ amount: 0.1, once: true }}
+                className="hidden md:block"
             >
                 <motion.h2 variants={itemVariants} className="text-4xl font-bold text-center mb-6">
                     Our Brews & Bites
@@ -166,82 +173,81 @@ const Menu = () => {
                 <motion.p variants={itemVariants} className="text-center mb-12">
                     Explore our handcrafted menu, brewed with love since 2025.
                 </motion.p>
-
-                <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-10">
-                    <motion.button
-                        variants={buttonVariants}
-                        onClick={() => setSelectedCategory(null)}
-                        className={`px-4 py-2 rounded-full border font-medium text-sm transition duration-300 ${
-                            selectedCategory === null ? "bg-white text-gray-900 shadow-lg" : "border-white/40 text-white"
-                        }`}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        All
-                    </motion.button>
-
-                    {categories.map((category) => {
-                        const style = categoryStyle(category)
-                        return (
-                            <motion.button
-                                key={category}
-                                variants={buttonVariants}
-                                onClick={() => setSelectedCategory(category)}
-                                className={`px-4 py-2 rounded-full font-medium text-sm transition duration-300 ${
-                                    selectedCategory === category
-                                        ? `bg-white text-gray-900 ${style.border} shadow-lg`
-                                        : `${style.border} ${style.text} hover:bg-white/10`
-                                }`}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                {category}
-                            </motion.button>
-                        )
-                    })}
-                </motion.div>
-
-                <motion.div
-                    variants={itemVariants}
-                    className="max-w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                >
-                    {filteredItems.map((item) => {
-                        const style = categoryStyle(item.category)
-                        return (
-                            <motion.div
-                                key={item.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: 0.4,
-                                    ease: "easeOut",
-                                }}
-                                className="bg-white/10 rounded-xl shadow-md hover:shadow-amber-200 group hover:scale-105 transition-all duration-300 cursor-pointer"
-                                onClick={() => setSelectedItem(item)}
-                            >
-                                <div className="p-4 flex justify-between items-start">
-                                    <div>
-                                        <h4 className={`text-lg font-semibold group-hover:text-white transition ${style.text}`}>
-                                            {item.name}
-                                        </h4>
-                                        <p className="text-sm text-gray-300">{item.desc}</p>
-                                    </div>
-                                    <div className={`flex items-center gap-2 text-lg font-semibold ${style.text}`}>
-                                        <FaCoffee style={{ color: style.icon }} />${item.price.toFixed(2)}
-                                    </div>
-                                </div>
-
-                                <div className="w-full h-[160px] md:h-[220px] lg:h-[260px]">
-                                    <img
-                                        src={`/menu/${item.image}`}
-                                        alt={item.name}
-                                        className="w-full h-full object-cover object-center rounded-b-xl"
-                                        loading="lazy"
-                                    />
-                                </div>
-                            </motion.div>
-                        )
-                    })}
-                </motion.div>
             </motion.div>
+
+            {/* Category Filter Buttons */}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-10 px-4">
+                <button
+                    onClick={() => setSelectedCategory(null)}
+                    className={`px-3 py-2 md:px-4 md:py-2 rounded-full border-2 font-medium text-xs md:text-sm transition duration-300 ${
+                        selectedCategory === null
+                            ? "bg-white text-gray-900 shadow-lg border-white"
+                            : "border-white/40 text-white hover:bg-white/10"
+                    }`}
+                >
+                    All
+                </button>
+
+                {categories.map((category) => {
+                    const style = getCategoryStyle(category)
+                    return (
+                        <button
+                            key={category}
+                            onClick={() => setSelectedCategory(category)}
+                            className={`px-3 py-2 md:px-4 md:py-2 rounded-full border-2 font-medium text-xs md:text-sm transition duration-300 ${
+                                selectedCategory === category ? "bg-white text-gray-900 shadow-lg" : "hover:bg-white/10"
+                            }`}
+                            style={{
+                                borderColor: style.borderColor,
+                                color: selectedCategory === category ? "#1f2937" : style.textColor,
+                            }}
+                        >
+                            {category}
+                        </button>
+                    )
+                })}
+            </div>
+
+            {/* Menu Items Grid */}
+            <div className="max-w-full mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                {filteredItems.map((item) => {
+                    const style = getCategoryStyle(item.category)
+                    return (
+                        <div
+                            key={item.id}
+                            className="bg-white/10 rounded-xl overflow-hidden shadow-md hover:shadow-amber-200 group hover:scale-105 transition-all duration-300 cursor-pointer"
+                            onClick={() => setSelectedItem(item)}
+                        >
+                            <div className="p-4 flex justify-between items-start">
+                                <div className="flex-1 pr-2">
+                                    <h4
+                                        className="text-base md:text-lg font-semibold group-hover:text-white transition-colors"
+                                        style={{ color: style.textColor }}
+                                    >
+                                        {item.name}
+                                    </h4>
+                                    <p className="text-xs md:text-sm text-gray-300 mt-1">{item.desc}</p>
+                                </div>
+                                <div className="flex items-center gap-1 md:gap-2 text-base md:text-lg font-semibold flex-shrink-0">
+                                    <FaCoffee style={{ color: style.iconColor }} className="text-sm md:text-base" />
+                                    <span className="text-sm md:text-base" style={{ color: style.textColor }}>
+                    ${item.price.toFixed(2)}
+                  </span>
+                                </div>
+                            </div>
+
+                            <div className="w-full h-[140px] md:h-[160px] lg:h-[220px]">
+                                <img
+                                    src={`/menu/${item.image}`}
+                                    alt={item.name}
+                                    className="w-full h-full object-cover object-center rounded-b-xl"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>
 
             {selectedItem && <MenuModal item={selectedItem} onClose={() => setSelectedItem(null)} />}
         </section>
