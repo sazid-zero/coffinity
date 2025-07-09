@@ -9,7 +9,7 @@ const quoteBubbles = [
 const About = () => {
     return (
         <section className="py-52 text-white px-6 relative overflow-hidden">
-            {/* Floating Quotes */}
+
             {quoteBubbles.map((quote, i) => (
                 <motion.div
                     key={i}

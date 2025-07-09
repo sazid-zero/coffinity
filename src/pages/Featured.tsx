@@ -42,7 +42,7 @@ export const Featured = () => {
                         }}
                         viewport={{ amount:0.3 }}
                     >
-                        {/* Floating PNG */}
+
                         <img
                             src={`/featured/${item.image}`}
                             alt={item.title}
