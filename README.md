@@ -87,11 +87,6 @@ npm run dev
 npm run build
 ```
 
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
 
 ## 🎯 Browser Support
 
