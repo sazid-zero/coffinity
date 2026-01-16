@@ -44,16 +44,24 @@ export function Nav() {
 
             {/* Mobile Nav Overlay */}
             {showMobileMenu && (
-                <div className="md:hidden h-120 w-96 fixed mt-16 right-6 bg-white/20 bg-opacity-95 backdrop-blur-md rounded-2xl z-40 flex flex-col items-center justify-center space-y-6 text-white text-xl">
-                    <button className="absolute top-6 right-6" onClick={() => setShowMobileMenu(false)}>
+                <div className="md:hidden fixed inset-0 bg-black/90 backdrop-blur-xl z-[100] flex flex-col items-center justify-center space-y-8 text-white text-2xl p-6">
+                    <button className="absolute top-6 right-6 p-2 hover:bg-white/10 rounded-full transition-colors" onClick={() => setShowMobileMenu(false)}>
                         <FaTimes className="text-3xl" />
                     </button>
-                    {nav.map((item) => (
-                        <div key={item} className="cursor-pointer" onClick={() => scrollToSection(item)}>
-                            {item}
+                    <div className="flex flex-col items-center space-y-8 w-full">
+                        {nav.map((item) => (
+                            <div 
+                                key={item} 
+                                className="cursor-pointer hover:text-amber-400 transition-colors font-medium tracking-wide" 
+                                onClick={() => scrollToSection(item)}
+                            >
+                                {item}
+                            </div>
+                        ))}
+                        <div className="pt-4">
+                            <Button title={"Sign Up"} width={"160px"} height={"50px"} />
                         </div>
-                    ))}
-                    <Button title={"Sign Up"} width={"140px"} height={"44px"} />
+                    </div>
                 </div>
             )}
         </>
