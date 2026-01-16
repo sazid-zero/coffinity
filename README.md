@@ -61,7 +61,8 @@ cd coffinity
 
 ## Deployment
 
-The build command runs `npm run build` and serves the production-ready files from the `dist` directory.
+The build command runs `npm run build` and serves the production-ready files from the `dist` directory. 
+
 =======
 - **Animation Batching** - Coordinated animations to prevent jank
 - **Intersection Observer** - Pause animations when out of view
