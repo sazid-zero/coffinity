@@ -46,7 +46,50 @@ A high-performance, modern coffee shop landing page built with React, TypeScript
 
 ## Deployment
 
+<<<<<<< HEAD
 Configured for static deployment on Replit. The build command runs `npm run build` and serves the production-ready files from the `dist` directory.
+=======
+- **Animation Batching** - Coordinated animations to prevent jank
+- **Intersection Observer** - Pause animations when out of view
+- **GPU Acceleration** - Hardware-accelerated transforms
+- **Lazy Loading** - Images load only when needed
+- **Smart Intervals** - Pause timers when tab is inactive
+
+## 🛠️ Installation
+
+1. Clone the repository
+```bash
+git clone <repository-url>
+cd coffinity-landing
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Start development server
+```bash
+npm run dev
+```
+
+4. Build for production
+```bash
+npm run build
+```
+
+
+## 🎯 Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+## 📄 License
+
+MIT License - feel free to use this project for personal or commercial purposes.
+>>>>>>> 4d7ce0f4906953be334a8c414aea26e7b93a4b03
 
 ---
 
