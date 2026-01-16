@@ -11,7 +11,7 @@ Hero Section:
 ![Hero Section](./screenshots/hero.png)
 
 Features:
-![Features Section](./screenshots/features.png)
+![Features Section](./screenshots/featured.png)
 
 About:
 ![About Section](./screenshots/about.png)
