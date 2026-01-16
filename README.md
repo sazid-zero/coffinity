@@ -33,8 +33,8 @@ Menu:
 ## Getting Started
 1. **Clone the repository**
 ```bash
-git clone <repository-url>
-cd coffinity-landing
+git clone https://github.com/sazid-zero/coffinity.git
+cd coffinity
 ```
 
 2. **Install Dependencies**:
