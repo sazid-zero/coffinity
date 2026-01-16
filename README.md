@@ -2,6 +2,17 @@
 
 A high-performance, modern coffee shop landing page built with React, TypeScript, and Vite.
 
+# 📸 Screenshots
+
+Hero Section:
+![Hero Section](./screenshots/hero.png)
+
+Features:
+![Features Section](./screenshots/features.png)
+
+Menu:
+![menu Section](./screenshots/menu.png)
+
 ## ✨ Features
 
 - **Smooth Scrolling**: Integrated with **Lenis** for a buttery-smooth, modern scrolling experience.
@@ -20,19 +31,23 @@ A high-performance, modern coffee shop landing page built with React, TypeScript
 - **Icons**: Lucide React, React Icons
 
 ## Getting Started
+1. **Clone the repository**
+```bash
+git clone https://github.com/sazid-zero/coffinity.git
+cd coffinity
+```
 
-1. **Install Dependencies**:
+2. **Install Dependencies**:
    ```bash
    npm install
    ```
 
-2. **Run Development Server**:
+3. **Run Development Server**:
    ```bash
    npm run dev
    ```
-   The site will be available on port 5000 (standard for this Replit setup).
 
-3. **Build for Production**:
+4. **Build for Production**:
    ```bash
    npm run build
    ```
@@ -46,50 +61,18 @@ A high-performance, modern coffee shop landing page built with React, TypeScript
 
 ## Deployment
 
-<<<<<<< HEAD
-Configured for static deployment on Replit. The build command runs `npm run build` and serves the production-ready files from the `dist` directory.
-=======
+The build command runs `npm run build` and serves the production-ready files from the `dist` directory. 
+
 - **Animation Batching** - Coordinated animations to prevent jank
 - **Intersection Observer** - Pause animations when out of view
 - **GPU Acceleration** - Hardware-accelerated transforms
 - **Lazy Loading** - Images load only when needed
 - **Smart Intervals** - Pause timers when tab is inactive
 
-## 🛠️ Installation
-
-1. Clone the repository
-```bash
-git clone <repository-url>
-cd coffinity-landing
-```
-
-2. Install dependencies
-```bash
-npm install
-```
-
-3. Start development server
-```bash
-npm run dev
-```
-
-4. Build for production
-```bash
-npm run build
-```
-
-
-## 🎯 Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
 
 ## 📄 License
 
 MIT License - feel free to use this project for personal or commercial purposes.
->>>>>>> 4d7ce0f4906953be334a8c414aea26e7b93a4b03
 
 ---
 
