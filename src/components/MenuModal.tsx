@@ -40,21 +40,21 @@ export const MenuModal = ({ item, onClose }: MenuModalProps) => {
                 </button>
 
 
-                <div className="flex justify-between items-center p-6">
-                    <div className="space-y-2">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 gap-6">
+                    <div className="space-y-2 w-full">
                         <h2 className="text-2xl font-bold">{item.name}</h2>
-                        <p className="text-gray-300">{item.desc}</p>
+                        <p className="text-gray-300 text-sm md:text-base">{item.desc}</p>
                     </div>
-                    <div className="flex flex-col justify-end items-end space-y-4">
-                        <h1 className="pr-6 text-lg text-amber-400 font-semibold">${item.price.toFixed(2)}</h1>
-                        <div className="p-6 pt-0 flex justify-end items-center space-x-4">
-                            <button className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-black/50 text-white rounded-full text-sm font-medium shadow-md transition">
-                                <span className="text-gray-300 text-sm">Buy now</span>
-                                <FaCartShopping className="text-white h-5 w-5" />
+                    <div className="flex flex-row md:flex-col justify-between md:justify-end items-center md:items-end w-full gap-4">
+                        <h1 className="text-xl text-amber-400 font-bold whitespace-nowrap">${item.price.toFixed(2)}</h1>
+                        <div className="flex justify-end items-center gap-3">
+                            <button className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-black/50 text-white rounded-full text-xs md:text-sm font-medium shadow-md transition whitespace-nowrap">
+                                <span>Buy now</span>
+                                <FaCartShopping className="h-4 w-4 md:h-5 md:w-5" />
                             </button>
-                            <button className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-black/50 text-white rounded-full text-sm font-medium shadow-md transition">
-                                <span className="text-gray-300 text-sm">Add to cart</span>
-                                <FaCartShopping className="text-white h-5 w-5" />
+                            <button className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-black/50 text-white rounded-full text-xs md:text-sm font-medium shadow-md transition whitespace-nowrap">
+                                <span>Add to cart</span>
+                                <FaCartShopping className="h-4 w-4 md:h-5 md:w-5" />
                             </button>
                         </div>
                     </div>
