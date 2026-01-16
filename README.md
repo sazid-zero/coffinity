@@ -2,6 +2,9 @@
 
 A high-performance, modern coffee shop landing page built with React, TypeScript, and Vite.
 
+🌐 Live Demo:
+👉 https://coffinity.vercel.app/
+
 # 📸 Screenshots
 
 Hero Section:
@@ -10,8 +13,11 @@ Hero Section:
 Features:
 ![Features Section](./screenshots/features.png)
 
+About:
+![About Section](./screenshots/about.png)
+
 Menu:
-![menu Section](./screenshots/menu.png)
+![About Section](./screenshots/menu.png)
 
 ## ✨ Features
 
