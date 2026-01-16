@@ -40,7 +40,7 @@ export const MenuModal = ({ item, onClose }: MenuModalProps) => {
                 </button>
 
 
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 gap-6">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-8 gap-6">
                     <div className="space-y-2">
                         <h2 className="text-2xl font-bold">{item.name}</h2>
                         <p className="text-gray-300 text-sm md:text-base">{item.desc}</p>
