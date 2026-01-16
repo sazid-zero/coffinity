@@ -41,11 +41,11 @@ export const MenuModal = ({ item, onClose }: MenuModalProps) => {
 
 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 gap-6">
-                    <div className="space-y-2 w-full">
+                    <div className="space-y-2">
                         <h2 className="text-2xl font-bold">{item.name}</h2>
                         <p className="text-gray-300 text-sm md:text-base">{item.desc}</p>
                     </div>
-                    <div className="flex flex-row md:flex-col justify-between md:justify-end items-center md:items-end w-full gap-4">
+                    <div className="flex flex-row md:flex-col justify-between md:justify-end items-center md:items-end gap-4">
                         <h1 className="text-xl text-amber-400 font-bold whitespace-nowrap">${item.price.toFixed(2)}</h1>
                         <div className="flex justify-end items-center gap-3">
                             <button className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-black/50 text-white rounded-full text-xs md:text-sm font-medium shadow-md transition whitespace-nowrap">
